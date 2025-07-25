@@ -83,7 +83,7 @@ class Preprocessor {
 				val (left, right) = notEqualsPattern.find(source)!!.destructured
 				val leftValue = variables[left]?.toString() ?: left
 				val rightValue = variables[right]?.toString() ?: right
-				return leftValue != rightValue  // Fixed: correct order
+				return leftValue != rightValue
 			}
 			greaterOrEqualsPattern.containsMatchIn(source) -> {
 				val (left, right) = greaterOrEqualsPattern.find(source)!!.destructured

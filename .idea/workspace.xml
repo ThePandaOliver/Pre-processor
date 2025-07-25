@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ba9a182-58e6-4233-b49f-583decf12417" name="Changes" comment="Initial Gradle project setup with Preprocessor plugin, tests, and configuration files.">
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/PreprocessorComparisonTests.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/PreprocessorVariablesTest.kt" afterDir="false" />
+    <list default="true" id="1ba9a182-58e6-4233-b49f-583decf12417" name="Changes" comment="Add extended conditional logic, comparison operators, and variable support in Preprocessor with comprehensive test coverage">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/preprocessor/Preprocessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/preprocessor/Preprocessor.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/PreprocessorTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/PreprocessorTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +121,7 @@
       <workItem from="1753365029004" duration="7489000" />
       <workItem from="1753386684975" duration="9734000" />
       <workItem from="1753446935117" duration="9484000" />
-      <workItem from="1753474402355" duration="1056000" />
+      <workItem from="1753474402355" duration="1716000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Gradle project setup with Preprocessor plugin, tests, and configuration files.">
       <option name="closed" value="true" />
@@ -135,7 +131,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753396199134</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add extended conditional logic, comparison operators, and variable support in Preprocessor with comprehensive test coverage">
+      <option name="closed" value="true" />
+      <created>1753475538290</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1753475538290</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,6 +147,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Gradle project setup with Preprocessor plugin, tests, and configuration files." />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial Gradle project setup with Preprocessor plugin, tests, and configuration files." />
+    <MESSAGE value="Add extended conditional logic, comparison operators, and variable support in Preprocessor with comprehensive test coverage" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add extended conditional logic, comparison operators, and variable support in Preprocessor with comprehensive test coverage" />
   </component>
 </project>
