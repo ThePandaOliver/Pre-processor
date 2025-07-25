@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ba9a182-58e6-4233-b49f-583decf12417" name="Changes" comment="Add extended conditional logic, comparison operators, and variable support in Preprocessor with comprehensive test coverage">
+    <list default="true" id="1ba9a182-58e6-4233-b49f-583decf12417" name="Changes" comment="IDK">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -121,7 +122,7 @@
       <workItem from="1753365029004" duration="7489000" />
       <workItem from="1753386684975" duration="9734000" />
       <workItem from="1753446935117" duration="9484000" />
-      <workItem from="1753474402355" duration="1716000" />
+      <workItem from="1753474402355" duration="3174000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Gradle project setup with Preprocessor plugin, tests, and configuration files.">
       <option name="closed" value="true" />
@@ -139,7 +140,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753475538290</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="IDK">
+      <option name="closed" value="true" />
+      <created>1753476870976</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1753476870976</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,6 +157,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Gradle project setup with Preprocessor plugin, tests, and configuration files." />
     <MESSAGE value="Add extended conditional logic, comparison operators, and variable support in Preprocessor with comprehensive test coverage" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add extended conditional logic, comparison operators, and variable support in Preprocessor with comprehensive test coverage" />
+    <MESSAGE value="IDK" />
+    <option name="LAST_COMMIT_MESSAGE" value="IDK" />
   </component>
 </project>
