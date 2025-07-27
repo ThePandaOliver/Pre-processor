@@ -4,18 +4,21 @@ import org.jetbrains.gradle.ext.settings
 plugins {
 	kotlin("jvm") version "2.2.0"
 	`kotlin-dsl`
+	`java-gradle-plugin`
 	idea
 	alias(libs.plugins.ideaExt)
+	`maven-publish`
 }
 
 group = "dev.pandasystems"
-version = "1.0-SNAPSHOT"
+version = "0.1-POC.3"
 
 repositories {
 	mavenCentral()
 }
 
 dependencies {
+	compileOnly(kotlin("gradle-plugin"))
 	gradleApi()
 	gradleTestKit()
 	gradleKotlinDsl()
@@ -45,6 +48,14 @@ idea {
 			val packagePrefixStr = "dev.pandasystems"
 			packagePrefix["src/main/kotlin"] = packagePrefixStr
 			packagePrefix["src/main/java"] = packagePrefixStr
+		}
+	}
+}
+
+publishing {
+	publications {
+		create<MavenPublication>("preprocessor") {
+			from(components["java"])
 		}
 	}
 }

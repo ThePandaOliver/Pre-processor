@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ba9a182-58e6-4233-b49f-583decf12417" name="Changes" comment="IDK">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="1ba9a182-58e6-4233-b49f-583decf12417" name="Changes" comment="Add initial README.md for project documentation">
+      <change afterPath="$PROJECT_DIR$/test-project/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-project/settings.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/preprocessor/PreprocessorPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/preprocessor/PreprocessorPlugin.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/PreprocessorComparisonTests.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/PreprocessorComparisonTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,11 +23,17 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+    <projectState path="$PROJECT_DIR$/test-project">
+      <ProjectState />
+    </projectState>
   </component>
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
         <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/test-project">
           <activation />
         </task>
         <projects_view>
@@ -30,6 +42,35 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="preprocessor" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="test-project" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="test-project" type="f1a62948:ProjectNode" />
+                <item name="test-project" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="test-project" type="f1a62948:ProjectNode" />
+                <item name="test-project" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="test-project" type="f1a62948:ProjectNode" />
+                <item name="test-project" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="test-project" type="f1a62948:ProjectNode" />
+                <item name="test-project" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="other" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -60,9 +101,17 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Gradle.PreprocessorComparisonTest.executor": "Run",
     "Gradle.PreprocessorPluginTest.executor": "Run",
+    "Gradle.PreprocessorPropertiesTest.executor": "Run",
     "Gradle.PreprocessorTest.executor": "Run",
+    "Gradle.PreprocessorVariablesTest.executor": "Run",
     "Gradle.Test.executor": "Run",
+    "Gradle.preprocessor [:build].executor": "Run",
+    "Gradle.preprocessor [build].executor": "Run",
+    "Gradle.preprocessor [publishToMavenLocal].executor": "Run",
+    "Gradle.test-project [build].executor": "Run",
+    "Gradle.test-project [preprocessSources].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -70,17 +119,30 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "C:/Users/Olive/IdeaProjects/preprocessor/test-project",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "C:/Users/Olive/IdeaProjects/preprocessor/src/main/kotlin/Main.kt",
-    "settings.editor.selected.configurable": "preferences.sourceCode.Java",
+    "settings.editor.selected.configurable": "editor.preferences.inline.completion",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Olive\IdeaProjects\preprocessor\test-project" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="gradlew publishToMavenLocal" />
+      <command value="gradlew build" />
+      <command value="gradlew :build" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Gradle.test-project [preprocessSources]">
     <configuration name="Test" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -103,6 +165,61 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="test-project [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/test-project" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="test-project [preprocessSources]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/test-project" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="preprocessSources" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Gradle.Test" />
+      <item itemvalue="Gradle.test-project [preprocessSources]" />
+      <item itemvalue="Gradle.test-project [build]" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.test-project [preprocessSources]" />
+        <item itemvalue="Gradle.test-project [build]" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -122,7 +239,12 @@
       <workItem from="1753365029004" duration="7489000" />
       <workItem from="1753386684975" duration="9734000" />
       <workItem from="1753446935117" duration="9484000" />
-      <workItem from="1753474402355" duration="3174000" />
+      <workItem from="1753474402355" duration="3550000" />
+      <workItem from="1753517783689" duration="5896000" />
+      <workItem from="1753545120362" duration="1615000" />
+      <workItem from="1753564666430" duration="3711000" />
+      <workItem from="1753568440709" duration="2883000" />
+      <workItem from="1753571819304" duration="2786000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Gradle project setup with Preprocessor plugin, tests, and configuration files.">
       <option name="closed" value="true" />
@@ -148,7 +270,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753476870976</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add initial README.md for project documentation">
+      <option name="closed" value="true" />
+      <created>1753478347050</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1753478347050</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,6 +288,11 @@
     <MESSAGE value="Initial Gradle project setup with Preprocessor plugin, tests, and configuration files." />
     <MESSAGE value="Add extended conditional logic, comparison operators, and variable support in Preprocessor with comprehensive test coverage" />
     <MESSAGE value="IDK" />
-    <option name="LAST_COMMIT_MESSAGE" value="IDK" />
+    <MESSAGE value="Add initial README.md for project documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add initial README.md for project documentation" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
