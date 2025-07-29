@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ba9a182-58e6-4233-b49f-583decf12417" name="Changes" comment="Introduce `test-project` as an example project with Gradle-based configuration, initial Java source, and preprocessor integration.">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/preprocessor/PreprocessorTask.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-project/src/main/kotlin/TestClass.kt" afterDir="false" />
+    <list default="true" id="1ba9a182-58e6-4233-b49f-583decf12417" name="Changes" comment="Refactor `PreprocessorPlugin` to include `PreprocessorTask` for streamlined preprocessing and integrate task dependency management. Add example `TestClass` to demonstrate Preprocessor usage.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/preprocessor/PreprocessorPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/preprocessor/PreprocessorPlugin.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/preprocessor/PreprocessorTask.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/preprocessor/PreprocessorTask.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-project/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/test-project/build.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,9 +78,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="cd53f74c-9399-45e1-9b8e-6f1e9ef4677a" />
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -88,39 +85,39 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.PreprocessorComparisonTest.executor": "Run",
-    "Gradle.PreprocessorPluginTest.executor": "Run",
-    "Gradle.PreprocessorPropertiesTest.executor": "Run",
-    "Gradle.PreprocessorTest.executor": "Run",
-    "Gradle.PreprocessorVariablesTest.executor": "Run",
-    "Gradle.Test.executor": "Run",
-    "Gradle.preprocessor [:build].executor": "Run",
-    "Gradle.preprocessor [build].executor": "Run",
-    "Gradle.preprocessor [clean].executor": "Run",
-    "Gradle.preprocessor [publishToMavenLocal].executor": "Run",
-    "Gradle.test-project [build].executor": "Run",
-    "Gradle.test-project [preprocessMainSources].executor": "Run",
-    "Gradle.test-project [preprocessSources].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/Users/Olive/IdeaProjects/preprocessor/test-project",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/Olive/IdeaProjects/preprocessor/src/main/kotlin/Main.kt",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.PreprocessorComparisonTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PreprocessorPluginTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PreprocessorPropertiesTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PreprocessorTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PreprocessorVariablesTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Test.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.preprocessor [:build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.preprocessor [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.preprocessor [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.preprocessor [publishToMavenLocal].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.test-project [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.test-project [preprocessMainSources].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.test-project [preprocessSources].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Olive/IdeaProjects/preprocessor/test-project&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Olive/IdeaProjects/preprocessor/src/main/kotlin/Main.kt&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Olive\IdeaProjects\preprocessor\test-project" />
@@ -137,7 +134,7 @@
       <command value="gradlew clean" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.test-project [build]">
+  <component name="RunManager" selected="Gradle.test-project [preprocessSources]">
     <configuration name="Test" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -234,9 +231,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.test-project [preprocessSources]" />
         <item itemvalue="Gradle.test-project [build]" />
         <item itemvalue="Gradle.preprocessor [clean]" />
-        <item itemvalue="Gradle.test-project [preprocessSources]" />
       </list>
     </recent_temporary>
   </component>
@@ -267,7 +264,9 @@
       <workItem from="1753609705908" duration="10896000" />
       <workItem from="1753626449535" duration="7741000" />
       <workItem from="1753710790969" duration="1303000" />
-      <workItem from="1753783491721" duration="3961000" />
+      <workItem from="1753783491721" duration="4383000" />
+      <workItem from="1753793233510" duration="709000" />
+      <workItem from="1753801229489" duration="11336000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Gradle project setup with Preprocessor plugin, tests, and configuration files.">
       <option name="closed" value="true" />
@@ -309,7 +308,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753575185109</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Refactor `PreprocessorPlugin` to include `PreprocessorTask` for streamlined preprocessing and integrate task dependency management. Add example `TestClass` to demonstrate Preprocessor usage.">
+      <option name="closed" value="true" />
+      <created>1753787863877</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1753787863877</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -321,7 +328,8 @@
     <MESSAGE value="IDK" />
     <MESSAGE value="Add initial README.md for project documentation" />
     <MESSAGE value="Introduce `test-project` as an example project with Gradle-based configuration, initial Java source, and preprocessor integration." />
-    <option name="LAST_COMMIT_MESSAGE" value="Introduce `test-project` as an example project with Gradle-based configuration, initial Java source, and preprocessor integration." />
+    <MESSAGE value="Refactor `PreprocessorPlugin` to include `PreprocessorTask` for streamlined preprocessing and integrate task dependency management. Add example `TestClass` to demonstrate Preprocessor usage." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor `PreprocessorPlugin` to include `PreprocessorTask` for streamlined preprocessing and integrate task dependency management. Add example `TestClass` to demonstrate Preprocessor usage." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
