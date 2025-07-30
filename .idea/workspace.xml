@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ba9a182-58e6-4233-b49f-583decf12417" name="Changes" comment="Enhance conditional logic handling in `Preprocessor` by improving block evaluation for `#if`, `#elif`, `#else`, and `#endif`. Add `conditionMet` to track processed conditions, ensuring accurate flow control. Refactor `PreprocessorTask` to clean up old outputs and adjust directory structure for preprocessed sources.">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/preprocessor/preprocessor/keywords/IfKeywords.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/preprocessor/preprocessor/keywords/PreprocessorKeyword.kt" afterDir="false" />
+    <list default="true" id="1ba9a182-58e6-4233-b49f-583decf12417" name="Changes" comment="Modularize preprocessor keywords by introducing `PreprocessorKeyword` interface and separating `#if`, `#elif`, `#else`, and `#endif` logic into dedicated classes for improved maintainability and extensibility.">
+      <change afterPath="$PROJECT_DIR$/preprocessor-plugin/src/main/kotlin/dev/pandasystems/preprocessorplugin/PreprocessorAnnotator.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/preprocessor/preprocessor/Preprocessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/preprocessor/preprocessor/Preprocessor.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +18,9 @@
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/preprocessor-plugin">
       <ProjectState />
     </projectState>
     <projectState path="$PROJECT_DIR$/test-project">
@@ -32,36 +36,12 @@
         <task path="$PROJECT_DIR$/test-project">
           <activation />
         </task>
+        <task path="$PROJECT_DIR$/preprocessor-plugin">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="preprocessor" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="test-project" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="test-project" type="f1a62948:ProjectNode" />
-                <item name="test-project" type="2d1252cf:ModuleNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="test-project" type="f1a62948:ProjectNode" />
-                <item name="test-project" type="2d1252cf:ModuleNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="test-project" type="f1a62948:ProjectNode" />
-                <item name="test-project" type="2d1252cf:ModuleNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="other" type="c8890929:TasksNode$1" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -71,8 +51,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin File" />
         <option value="Kotlin Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
@@ -89,39 +69,44 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.PreprocessorComparisonTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PreprocessorPluginTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PreprocessorPropertiesTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PreprocessorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PreprocessorVariablesTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Test.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.preprocessor [:build].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.preprocessor [build].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.preprocessor [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.preprocessor [publishToMavenLocal].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.test-project [build].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.test-project [preprocessMainSources].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.test-project [preprocessSources].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Olive/IdeaProjects/preprocessor/test-project&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Olive/IdeaProjects/preprocessor/src/main/kotlin/Main.kt&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Download IntelliJ Platform sources.executor": "Run",
+    "Gradle.PreprocessorComparisonTest.executor": "Run",
+    "Gradle.PreprocessorPluginTest.executor": "Run",
+    "Gradle.PreprocessorPropertiesTest.executor": "Run",
+    "Gradle.PreprocessorTest.executor": "Run",
+    "Gradle.PreprocessorVariablesTest.executor": "Run",
+    "Gradle.Test.executor": "Run",
+    "Gradle.preprocessor [:build].executor": "Run",
+    "Gradle.preprocessor [build].executor": "Run",
+    "Gradle.preprocessor [clean].executor": "Run",
+    "Gradle.preprocessor [publishToMavenLocal].executor": "Run",
+    "Gradle.preprocessor-plugin [buildPlugin].executor": "Run",
+    "Gradle.preprocessor-plugin [runIde].executor": "Run",
+    "Gradle.test-project [build].executor": "Run",
+    "Gradle.test-project [preprocessMainSources].executor": "Run",
+    "Gradle.test-project [preprocessSources].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "C:/Users/Olive/IdeaProjects/preprocessor",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/Olive/IdeaProjects/preprocessor/src/main/kotlin/Main.kt",
+    "settings.editor.selected.configurable": "ml.llm.LLMConfigurable",
+    "settings.editor.splitter.proportion": "0.3058104",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Olive\IdeaProjects\preprocessor\test-project" />
@@ -146,7 +131,7 @@
       <command value="gradlew clean" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.test-project [preprocessSources]">
+  <component name="RunManager" selected="Gradle.preprocessor-plugin [buildPlugin]">
     <configuration name="Test" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -181,6 +166,50 @@
         <option name="taskNames">
           <list>
             <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="preprocessor-plugin [buildPlugin]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/preprocessor-plugin" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="buildPlugin" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="preprocessor-plugin [runIde]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/preprocessor-plugin" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="runIde" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -237,14 +266,19 @@
     </configuration>
     <list>
       <item itemvalue="Gradle.Test" />
+      <item itemvalue="Gradle.Run Plugin" />
       <item itemvalue="Gradle.preprocessor [clean]" />
-      <item itemvalue="Gradle.test-project [preprocessSources]" />
+      <item itemvalue="Gradle.preprocessor-plugin [buildPlugin]" />
+      <item itemvalue="Gradle.preprocessor-plugin [runIde]" />
       <item itemvalue="Gradle.test-project [build]" />
+      <item itemvalue="Gradle.test-project [preprocessSources]" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.test-project [preprocessSources]" />
         <item itemvalue="Gradle.test-project [build]" />
+        <item itemvalue="Gradle.preprocessor-plugin [runIde]" />
+        <item itemvalue="Gradle.preprocessor-plugin [buildPlugin]" />
         <item itemvalue="Gradle.preprocessor [clean]" />
       </list>
     </recent_temporary>
@@ -281,7 +315,9 @@
       <workItem from="1753801229489" duration="11510000" />
       <workItem from="1753825324896" duration="2446000" />
       <workItem from="1753869073862" duration="3235000" />
-      <workItem from="1753879389551" duration="5766000" />
+      <workItem from="1753879389551" duration="12077000" />
+      <workItem from="1753909477056" duration="1670000" />
+      <workItem from="1753912906067" duration="1195000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Gradle project setup with Preprocessor plugin, tests, and configuration files.">
       <option name="closed" value="true" />
@@ -355,7 +391,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753884934764</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Modularize preprocessor keywords by introducing `PreprocessorKeyword` interface and separating `#if`, `#elif`, `#else`, and `#endif` logic into dedicated classes for improved maintainability and extensibility.">
+      <option name="closed" value="true" />
+      <created>1753886325180</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1753886325180</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -371,7 +415,8 @@
     <MESSAGE value="Update Kotlin plugin version and improve logging in `PreprocessorTask` for better clarity and error handling." />
     <MESSAGE value="Add modular operator framework and expression parser to improve conditional evaluation in Preprocessor, refactor variable handling, and enhance maintainability." />
     <MESSAGE value="Enhance conditional logic handling in `Preprocessor` by improving block evaluation for `#if`, `#elif`, `#else`, and `#endif`. Add `conditionMet` to track processed conditions, ensuring accurate flow control. Refactor `PreprocessorTask` to clean up old outputs and adjust directory structure for preprocessed sources." />
-    <option name="LAST_COMMIT_MESSAGE" value="Enhance conditional logic handling in `Preprocessor` by improving block evaluation for `#if`, `#elif`, `#else`, and `#endif`. Add `conditionMet` to track processed conditions, ensuring accurate flow control. Refactor `PreprocessorTask` to clean up old outputs and adjust directory structure for preprocessed sources." />
+    <MESSAGE value="Modularize preprocessor keywords by introducing `PreprocessorKeyword` interface and separating `#if`, `#elif`, `#else`, and `#endif` logic into dedicated classes for improved maintainability and extensibility." />
+    <option name="LAST_COMMIT_MESSAGE" value="Modularize preprocessor keywords by introducing `PreprocessorKeyword` interface and separating `#if`, `#elif`, `#else`, and `#endif` logic into dedicated classes for improved maintainability and extensibility." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
