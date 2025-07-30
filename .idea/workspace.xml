@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ba9a182-58e6-4233-b49f-583decf12417" name="Changes" comment="Refactor `PreprocessorPlugin` to include `PreprocessorTask` for streamlined preprocessing and integrate task dependency management. Add example `TestClass` to demonstrate Preprocessor usage.">
+    <list default="true" id="1ba9a182-58e6-4233-b49f-583decf12417" name="Changes" comment="Update Kotlin plugin version and improve logging in `PreprocessorTask` for better clarity and error handling.">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/preprocessor/preprocessor/ExpressionParser.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/preprocessor/preprocessor/Operators.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/preprocessor/preprocessor/VariableStore.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/preprocessor/PreprocessorTask.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/preprocessor/PreprocessorTask.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-project/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/test-project/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/preprocessor/Preprocessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/preprocessor/preprocessor/Preprocessor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/preprocessor/PreprocessorPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/preprocessor/PreprocessorPlugin.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/PreprocessorComparisonTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/PreprocessorComparisonTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/PreprocessorTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/PreprocessorTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/PreprocessorVariablesTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/PreprocessorVariablesTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-project/src/main/java/TestClass.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +84,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="cd53f74c-9399-45e1-9b8e-6f1e9ef4677a" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -121,6 +130,12 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Olive\IdeaProjects\preprocessor\test-project" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="dev.pandasystems.preprocessor.preprocessor.operators" />
+    </key>
+    <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
+      <recent name="dev.pandasystems.preprocessor.processor" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
@@ -266,7 +281,9 @@
       <workItem from="1753710790969" duration="1303000" />
       <workItem from="1753783491721" duration="4383000" />
       <workItem from="1753793233510" duration="709000" />
-      <workItem from="1753801229489" duration="11336000" />
+      <workItem from="1753801229489" duration="11510000" />
+      <workItem from="1753825324896" duration="2446000" />
+      <workItem from="1753869073862" duration="1744000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Gradle project setup with Preprocessor plugin, tests, and configuration files.">
       <option name="closed" value="true" />
@@ -316,7 +333,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753787863877</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Update Kotlin plugin version and improve logging in `PreprocessorTask` for better clarity and error handling.">
+      <option name="closed" value="true" />
+      <created>1753825182059</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1753825182059</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,7 +354,8 @@
     <MESSAGE value="Add initial README.md for project documentation" />
     <MESSAGE value="Introduce `test-project` as an example project with Gradle-based configuration, initial Java source, and preprocessor integration." />
     <MESSAGE value="Refactor `PreprocessorPlugin` to include `PreprocessorTask` for streamlined preprocessing and integrate task dependency management. Add example `TestClass` to demonstrate Preprocessor usage." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor `PreprocessorPlugin` to include `PreprocessorTask` for streamlined preprocessing and integrate task dependency management. Add example `TestClass` to demonstrate Preprocessor usage." />
+    <MESSAGE value="Update Kotlin plugin version and improve logging in `PreprocessorTask` for better clarity and error handling." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Kotlin plugin version and improve logging in `PreprocessorTask` for better clarity and error handling." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

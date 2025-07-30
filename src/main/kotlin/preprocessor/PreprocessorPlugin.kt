@@ -1,12 +1,11 @@
 package dev.pandasystems.preprocessor
 
+import dev.pandasystems.preprocessor.preprocessor.Preprocessor
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.api.tasks.SourceSetContainer
 import org.gradle.api.tasks.compile.AbstractCompile
 import org.gradle.kotlin.dsl.register
 import org.gradle.kotlin.dsl.withType
-import java.io.File
 
 class PreprocessorPlugin : Plugin<Project> {
 	override fun apply(target: Project) {

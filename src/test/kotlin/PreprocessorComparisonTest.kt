@@ -1,5 +1,6 @@
 package dev.pandasystems.preprocessor
 
+import dev.pandasystems.preprocessor.preprocessor.Preprocessor
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
