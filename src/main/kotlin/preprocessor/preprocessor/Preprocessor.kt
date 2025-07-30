@@ -1,5 +1,9 @@
 package dev.pandasystems.preprocessor.preprocessor
 
+import dev.pandasystems.preprocessor.preprocessor.keywords.ElifKeyword
+import dev.pandasystems.preprocessor.preprocessor.keywords.ElseKeyword
+import dev.pandasystems.preprocessor.preprocessor.keywords.EndifKeyword
+import dev.pandasystems.preprocessor.preprocessor.keywords.IfKeyword
 import java.util.Stack
 
 class Preprocessor {
@@ -12,7 +16,14 @@ class Preprocessor {
 		GreaterOrEqualOperator(),
 		LessOrEqualOperator()
 	)
-	private val expressionParser = ExpressionParser(operators, variableStore)
+	val expressionParser = ExpressionParser(operators, variableStore)
+	private val keywords = listOf(
+		IfKeyword(),
+		ElifKeyword(),
+		ElseKeyword(),
+		EndifKeyword()
+	)
+
 
 	fun process(source: String): String {
 		val lines = source.lines()
@@ -21,50 +32,14 @@ class Preprocessor {
 		for (line in lines) {
 			val trimmed = line.trim()
 			if (trimmed.startsWith("#")) {
-				// If the line is preprocessor
-				when {
-					trimmed.startsWith("#if ") -> {
-						val condition = processIf(trimmed.substringAfter("#if ").trim())
-						blockStack.push(Block(skipBlock = !condition, conditionMet = condition))
-					}
-
-					trimmed.startsWith("#elif ") -> {
-						val prevBlock = blockStack.pop()
-						if (!prevBlock.skipBlock) {
-							// Previous block was included, so skip all remaining elif/else blocks
-							blockStack.peek().lines.addAll(prevBlock.lines)
-							blockStack.push(Block(skipBlock = true, conditionMet = true))
-						} else if (prevBlock.conditionMet) {
-							// A previous condition in this chain was already met, skip this elif
-							blockStack.push(Block(skipBlock = true, conditionMet = true))
-						} else {
-							// Previous block was skipped and no condition met yet, evaluate this condition
-							val condition = processIf(trimmed.substringAfter("#elif ").trim())
-							blockStack.push(Block(skipBlock = !condition, conditionMet = condition))
-						}
-					}
-
-					trimmed.startsWith("#else") -> {
-						val prevBlock = blockStack.pop()
-						if (!prevBlock.skipBlock) {
-							// Previous block was included, so skip the else block
-							blockStack.peek().lines.addAll(prevBlock.lines)
-							blockStack.push(Block(skipBlock = true, conditionMet = true))
-						} else if (prevBlock.conditionMet) {
-							// A previous condition in this chain was already met, skip this else
-							blockStack.push(Block(skipBlock = true, conditionMet = true))
-						} else {
-							// No previous condition was met, include this else block
-							blockStack.push(Block(skipBlock = false, conditionMet = true))
-						}
-					}
-
-					trimmed == "#endif" -> {
-						val prevBlock = blockStack.pop()
-						if (!prevBlock.skipBlock) {
-							blockStack.peek().lines += prevBlock.lines
-						}
-					}
+				val parts = trimmed.substring(1).split(' ', limit = 2)
+				val keywordName = parts[0]
+				val expression = parts.getOrNull(1) ?: ""
+				val keyword = keywords.find { it.keyword == keywordName } ?: throw IllegalArgumentException("Unknown keyword: $keywordName")
+				try {
+					keyword.process(expression, this, blockStack)
+				} catch (e: Exception) {
+					throw IllegalArgumentException("Failed to process keyword $keywordName: ${e.message}", e)
 				}
 			} else {
 				val currentBlock = blockStack.peek()
@@ -89,10 +64,6 @@ class Preprocessor {
 
 	fun removeVariable(name: String) {
 		variableStore.remove(name)
-	}
-
-	private fun processIf(expression: String): Boolean {
-		return expressionParser.parse(expression)
 	}
 }
 
