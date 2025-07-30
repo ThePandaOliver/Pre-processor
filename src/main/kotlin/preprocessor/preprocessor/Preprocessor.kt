@@ -20,45 +20,56 @@ class Preprocessor {
 
 		for (line in lines) {
 			val trimmed = line.trim()
-			when {
-				trimmed.startsWith("#if ") -> {
-					blockStack.push(Block(skipBlock = !processIf(trimmed.substringAfter("#if ").trim())))
-				}
+			if (trimmed.startsWith("#")) {
+				// If the line is preprocessor
+				when {
+					trimmed.startsWith("#if ") -> {
+						val condition = processIf(trimmed.substringAfter("#if ").trim())
+						blockStack.push(Block(skipBlock = !condition, conditionMet = condition))
+					}
 
-				trimmed.startsWith("#elif ") -> {
-					val prevBlock = blockStack.pop()
-					if (!prevBlock.skipBlock) {
-						blockStack.peek().lines.addAll(prevBlock.lines)
-						blockStack.push(Block(skipBlock = true)) // Already processed a block, skip this one
-					} else {
-						// Previous block was skipped, evaluate this condition
-						blockStack.push(Block(skipBlock = !processIf(trimmed.substringAfter("#elif ").trim())))
+					trimmed.startsWith("#elif ") -> {
+						val prevBlock = blockStack.pop()
+						if (!prevBlock.skipBlock) {
+							// Previous block was included, so skip all remaining elif/else blocks
+							blockStack.peek().lines.addAll(prevBlock.lines)
+							blockStack.push(Block(skipBlock = true, conditionMet = true))
+						} else if (prevBlock.conditionMet) {
+							// A previous condition in this chain was already met, skip this elif
+							blockStack.push(Block(skipBlock = true, conditionMet = true))
+						} else {
+							// Previous block was skipped and no condition met yet, evaluate this condition
+							val condition = processIf(trimmed.substringAfter("#elif ").trim())
+							blockStack.push(Block(skipBlock = !condition, conditionMet = condition))
+						}
+					}
+
+					trimmed.startsWith("#else") -> {
+						val prevBlock = blockStack.pop()
+						if (!prevBlock.skipBlock) {
+							// Previous block was included, so skip the else block
+							blockStack.peek().lines.addAll(prevBlock.lines)
+							blockStack.push(Block(skipBlock = true, conditionMet = true))
+						} else if (prevBlock.conditionMet) {
+							// A previous condition in this chain was already met, skip this else
+							blockStack.push(Block(skipBlock = true, conditionMet = true))
+						} else {
+							// No previous condition was met, include this else block
+							blockStack.push(Block(skipBlock = false, conditionMet = true))
+						}
+					}
+
+					trimmed == "#endif" -> {
+						val prevBlock = blockStack.pop()
+						if (!prevBlock.skipBlock) {
+							blockStack.peek().lines += prevBlock.lines
+						}
 					}
 				}
-
-				trimmed.startsWith("#else") -> {
-					val prevBlock = blockStack.pop()
-					if (!prevBlock.skipBlock) {
-						blockStack.peek().lines.addAll(prevBlock.lines)
-						blockStack.push(Block(skipBlock = true)) // Already processed a block, skip this one
-					} else {
-						// Previous block was skipped, include this one
-						blockStack.push(Block(skipBlock = false))
-					}
-				}
-
-				trimmed == "#endif" -> {
-					val prevBlock = blockStack.pop()
-					if (!prevBlock.skipBlock) {
-						blockStack.peek().lines.addAll(prevBlock.lines)
-					}
-				}
-
-				else -> {
-					if (!blockStack.peek().skipBlock) {
-						blockStack.peek().lines.add(line)
-					}
-				}
+			} else {
+				val currentBlock = blockStack.peek()
+				if (!currentBlock.skipBlock)
+					currentBlock.lines += line
 			}
 		}
 
@@ -87,5 +98,6 @@ class Preprocessor {
 
 data class Block(
 	val lines: MutableList<String> = mutableListOf(),
-	val skipBlock: Boolean = false
+	val skipBlock: Boolean = false,
+	val conditionMet: Boolean = false
 )

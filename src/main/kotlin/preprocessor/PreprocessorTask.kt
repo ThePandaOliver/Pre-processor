@@ -16,7 +16,7 @@ open class PreprocessorTask @Inject constructor(private val project: Project) : 
 		description = "Runs the Preprocessor"
 	}
 
-	private val buildDir = project.layout.buildDirectory.get().asFile
+	private val buildDir = project.layout.buildDirectory.get().asFile.resolve("preprocessed-sources")
 	private val preprocessor = project.extensions.getByType(PreprocessorExtension::class.java).preprocessor
 
 	private val processedDirectories = mutableSetOf<File>()
@@ -26,6 +26,10 @@ open class PreprocessorTask @Inject constructor(private val project: Project) : 
 		project.logger.lifecycle("=== PreprocessorTask: Starting preprocessing ===")
 
 		processedDirectories.clear()
+		if (buildDir.exists()) {
+			buildDir.deleteRecursively()
+			project.logger.lifecycle("Deleted old preprocessed sources directory")
+		}
 
 		val sourceSetContainer = project.extensions.findByType(SourceSetContainer::class.java)
 		if (sourceSetContainer != null) {
@@ -67,7 +71,7 @@ open class PreprocessorTask @Inject constructor(private val project: Project) : 
 				project.logger.lifecycle("Directory $srcDir already processed, skipping for $type")
 				// Still need to add the output directory to newSrcDirs
 				val outputDir = srcDir.relativeTo(project.projectDir)
-					.let { buildDir.resolve("preprocessed-sources/$it") }
+					.let { buildDir.resolve("$it") }
 				newSrcDirs.add(outputDir)
 				return@forEach
 			}
@@ -79,7 +83,7 @@ open class PreprocessorTask @Inject constructor(private val project: Project) : 
 			}
 			
 			val outputDir = srcDir.relativeTo(project.projectDir)
-				.let { buildDir.resolve("preprocessed-sources/$it") }
+				.let { buildDir.resolve("$it") }
 			
 			project.logger.lifecycle("Processing $srcDir -> $outputDir")
 
