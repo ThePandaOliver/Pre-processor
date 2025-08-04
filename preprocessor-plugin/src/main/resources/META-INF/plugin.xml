@@ -27,8 +27,8 @@
 	<!-- Extension points defined by the plugin.
 		 Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
 	<extensions defaultExtensionNs="com.intellij">
-		<annotator language="JAVA" implementationClass="dev.pandasystems.preprocessorplugin.PreprocessorAnnotator"/>
-		<annotator language="kotlin" implementationClass="dev.pandasystems.preprocessorplugin.PreprocessorAnnotator"/>
+<!--		<highlightErrorFilter implementation="dev.pandasystems.preprocessorplugin.PreprocessorHighlightErrorFilter"/>-->
+		<daemon.highlightInfoFilter implementation="dev.pandasystems.preprocessorplugin.PreprocessorHighlightInfoFilter"/>
 	</extensions>
 
 	<extensions defaultExtensionNs="org.jetbrains.kotlin">
